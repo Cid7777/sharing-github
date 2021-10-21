@@ -1,26 +1,26 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Oct  6 15:57:20 2021
+#!/usr/bin/env python
+# coding: utf-8
 
-@author: Williams.Garrett
-"""
+# In[ ]:
+
+
 import pygame
 from pygame.sprite import Sprite
 
 class Bullet(Sprite):
     """A class to manage bullets fired from the ship."""
     
-    def __init__(self, tg_game):
+    def __init__(self, ai_game):
         """Create a bullet object at the ship's current position."""
         super().__init__()
-        self.screen = tg_game.screen
-        self.settings = tg_game.settings
+        self.screen = ai_game.screen
+        self.settings = ai_game.settings
         self.color = self.settings.bullet_color
         
         #Create a bullet rect at (0, 0) and then set correct position.
         self.rect = pygame.Rect(0, 0, self.settings.bullet_width,
                                 self.settings.bullet_height)
-        self.rect.midtop = tg_game.ship.rect.midtop
+        self.rect.midtop = ai_game.ship.rect.midtop
         
         #Store the bullet's position as a decimal value
         self.y = float(self.rect.y)

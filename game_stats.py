@@ -1,22 +1,22 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Oct  6 21:41:16 2021
+Created on Mon Oct  4 11:11:27 2021
 
-@author: garrettwilliams
+@author: Williams.Garrett
 """
 
 class GameStats:
     "Track statistics for Alien Invasion."
-    def __init__(self, tg_game):
+    def __init__(self, ai_game):
         "Initialize statistics."
-        self.settings = tg_game.settings
+        self.settings = ai_game.settings
         self.reset_stats()
-        
+        self.high_score = 0
         #Start Alien Invasion in an inactive state for Play button.
         self.game_active = False
         
     def reset_stats(self):
         "Initialize statistics that can change during the game."
-        self.chances_left = self.settings.miss_chance
-        
+        self.ships_left = self.settings.ship_limit
+        self.score = 0
+        self.level = 1
